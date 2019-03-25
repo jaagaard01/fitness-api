@@ -1,0 +1,19 @@
+{
+  "name": "src",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npm start"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "graphql-cli": "^3.0.11",
+    "graphql-yoga": "^1.17.4",
+    "prisma-binding": "^2.3.9",
+    "prisma-client-lib": "^1.29.1"
+  }
+}

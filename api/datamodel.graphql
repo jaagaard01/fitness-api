@@ -1,0 +1,26 @@
+type User {
+  id: ID! @unique 
+  firstName: String!
+  lastName: String!
+  template: [Template!]!
+  log: [Logs!]!
+}
+
+
+type Template {
+  templateID: ID! @unique
+  name: String!
+  description: String
+  log: [Logs!]!
+  bodyType: String!
+}
+
+type Logs {
+  logId: ID! @unique
+  name: String!
+  bodyType: String!
+  date: Int!
+  weight: Int!
+  reps: Int! 
+
+}

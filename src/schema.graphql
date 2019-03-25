@@ -1,0 +1,16 @@
+# defines the application schema (the GraphQL schema defining the GraphQL API of your server).
+
+#probably need to import from datamodel.graphql or prisma.graphql 
+
+type Query{
+    user(id: ID!): User
+    templates(searchString: String!) : [Template!]!
+    logs(searchString: String): [Logs!]! ## might need to search by template id instead of string 
+
+
+}
+
+
+type Mutation{
+
+}
