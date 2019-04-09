@@ -11,19 +11,19 @@ type Template {
   id: ID! @unique
   name: String!
   description: String
-  logs: [Logs!]!
+  logs: Logs!
   bodyType: String!
-  author: String!
+  author: User
 }
 
 type Logs {
   id: ID! @unique
-  name: [Template!]!
+  name: Template!
   bodyType: String!
   date: Int!
   weight: Int!
   reps: Int! 
-  author: String!
+  author: User
 
 
 }

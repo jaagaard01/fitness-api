@@ -1,6 +1,6 @@
 
 type Query{
-    user(id: ID, firstName:String, lastName: String): User
+    user(userId: ID, firstName:String, lastName: String): User
     templates(searchString: String!) : [Template!]!
     logs(searchString: String, id:ID): [Logs!]!
     templatesByUser(userId:ID!): [Template!]!
@@ -12,7 +12,7 @@ type Query{
 
 type Mutation{
      signup(firstName: String!, lastName: String! id: ID): User!
-     createTemplate(id: ID, description: String, name: String!, bodyType: String!, userId: ID!): Template
+     createTemplate(id: ID, description: String, name: String!, bodyType: String!, userId: ID): Template
      createLogs(id: ID, name: String!, weight: Int!, reps: Int!, date: Int!, userId: ID!,): Logs
      deleteUser(id: ID!): User
      deleteTemplate(id: ID!): Template
@@ -38,18 +38,18 @@ type Template {
   id: ID! 
   name: String!
   description: String
-  logs: [Logs]!
+  logs: Logs!
   bodyType: String!
-  author: String!
+  author: User!
 }
 
 type Logs {
   id: ID! 
-  name: [Template!]!
+  name: Template!
   bodyType: String!
   date: Int!
   weight: Int!
   reps: Int! 
-  author: String!
+  author: User!
 
 }

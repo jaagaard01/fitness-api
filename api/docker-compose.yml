@@ -1,7 +1,7 @@
 version: '3'
 services:
   prisma:
-    image: prismagraphql/prisma:1.14
+    image: prismagraphql/prisma:1.13
     restart: always
     ports:
     - "4466:4466"
@@ -13,8 +13,7 @@ services:
         databases:
           default:
             connector: mysql
-            database: fitness
-            host: localhost
+            host: mysql
             port: 3306
             user: root
             password: prisma

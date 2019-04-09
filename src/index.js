@@ -30,7 +30,7 @@ const resolvers = {
              {name_contains: args.searchString},
              {bodyType_contains: args.searchString},
            ],
-           author: args.userId,
+           author: args.authorId,
           },
           data:{
             name: args.name,
@@ -83,7 +83,7 @@ const resolvers = {
             description: args.description,
             author: {
               connect: {
-                author: args.userId
+                author: args.authorId
               }
             }
           },
