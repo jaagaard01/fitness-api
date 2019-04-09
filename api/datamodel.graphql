@@ -8,19 +8,22 @@ type User {
 
 
 type Template {
-  templateID: ID! @unique
+  id: ID! @unique
   name: String!
   description: String
-  log: [Logs!]!
+  logs: [Logs!]!
   bodyType: String!
+  author: String!
 }
 
 type Logs {
-  logId: ID! @unique
-  name: String!
+  id: ID! @unique
+  name: [Template!]!
   bodyType: String!
   date: Int!
   weight: Int!
   reps: Int! 
+  author: String!
+
 
 }

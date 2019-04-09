@@ -1,16 +1,55 @@
-# defines the application schema (the GraphQL schema defining the GraphQL API of your server).
-
-#probably need to import from datamodel.graphql or prisma.graphql 
 
 type Query{
-    user(id: ID!): User
+    user(id: ID, firstName:String, lastName: String): User
     templates(searchString: String!) : [Template!]!
-    logs(searchString: String): [Logs!]! ## might need to search by template id instead of string 
+    logs(searchString: String, id:ID): [Logs!]!
+    templatesByUser(userId:ID!): [Template!]!
+    logsByUser(userId:ID!): [Logs!]!
 
 
 }
 
 
 type Mutation{
+     signup(firstName: String!, lastName: String! id: ID): User!
+     createTemplate(id: ID, description: String, name: String!, bodyType: String!, userId: ID!): Template
+     createLogs(id: ID, name: String!, weight: Int!, reps: Int!, date: Int!, userId: ID!,): Logs
+     deleteUser(id: ID!): User
+     deleteTemplate(id: ID!): Template
+     deleteLogs(id: ID!): Logs
+     updateUser(id:ID!): User
+     updateTemplate(id: ID!): Template
+     updateLogs(id: ID!): Logs
+
+     
+}
+
+
+type User {
+  id: ID! 
+  firstName: String!
+  lastName: String!
+  template: [Template!]!
+  log: [Logs!]!
+}
+
+
+type Template {
+  id: ID! 
+  name: String!
+  description: String
+  logs: [Logs]!
+  bodyType: String!
+  author: String!
+}
+
+type Logs {
+  id: ID! 
+  name: [Template!]!
+  bodyType: String!
+  date: Int!
+  weight: Int!
+  reps: Int! 
+  author: String!
 
 }
